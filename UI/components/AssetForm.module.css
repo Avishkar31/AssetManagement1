@@ -1,0 +1,100 @@
+.assetFormPopup {
+  height: 100dvh;
+  width: 100dvw;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(128, 128, 128, 0.507);
+}
+
+.backdrop {
+  height: 100dvh;
+  position: absolute;
+  background-color: rgba(128, 128, 128, 0.507);
+}
+
+.assetForm {
+  height: 90%;
+  width: 40rem;
+  background-color: white;
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 1rem;
+}
+
+.header {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.control {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.control label {
+  width: 6rem;
+}
+
+.control input {
+  padding: 0.2rem;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid gray;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.assessoriesLabel {
+    font-size: 1.2rem;
+    width: fit-content;
+    margin: 1rem;
+    font-weight: 600;
+    color: blue;
+}
+
+.assessories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+}
+
+.assessoriesControl {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.assessoriesControl input {
+  width: 2rem;
+  text-align: center;
+  padding: 0.2rem;
+}
+
+.assessoriesControl label {
+  width: 8rem;
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.submitBtn {
+  background-color: greenyellow;
+  padding: 0.5rem;
+  width: fit-content;
+  border-radius: 0.5rem;
+  margin: auto;
+  margin-top: 0.5rem;
+  box-shadow: 3px 3px 2px rgb(83, 149, 83);
+  cursor: pointer;
+  border: none;
+}
