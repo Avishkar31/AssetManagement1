@@ -22,12 +22,13 @@ const Dashboard = () => {
     const addAssetHandler = (newAsset) => {
         setIsFromOpen(false);
         setAssests([...assets, newAsset]);
+        setFilteredAssets(assets.filter(asset => JSON.stringify(asset).toLowerCase().includes(searchText)));
     }
 
     const handleFilter = (e) => {
         const text = e.target.value;
         setSearchText(text);
-        setFilteredAssets(assets.filter(asset => JSON.stringify(asset).toLowerCase().includes(text)))
+        setFilteredAssets(assets.filter(asset => JSON.stringify(asset).toLowerCase().includes(text)));
     }
 
     useEffect(() => {
