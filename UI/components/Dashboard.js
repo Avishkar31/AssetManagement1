@@ -22,7 +22,8 @@ const Dashboard = () => {
     const addAssetHandler = (newAsset) => {
         setIsFromOpen(false);
         setAssests([...assets, newAsset]);
-        setFilteredAssets(assets.filter(asset => JSON.stringify(asset).toLowerCase().includes(searchText)));
+        const newAssetList = [...assets, newAsset];
+        setFilteredAssets(newAssetList.filter(asset => JSON.stringify(asset).toLowerCase().includes(searchText)));
     }
 
     const handleFilter = (e) => {
@@ -39,7 +40,7 @@ const Dashboard = () => {
         <>
             {isFromOpen && <AssetForm addAssetToGrid={addAssetHandler} />}
             <section className={classes.container}>
-                <div className={classes.tagAssetBtn} onClick={openForm}>Tag Assset</div>
+                <div className={classes.tagAssetBtn} onClick={openForm}>-Tag Assset-</div>
                 <input type="text" onChange={handleFilter}/>
                 <div className={classes.table}>
                     <div className={classes.header}>
