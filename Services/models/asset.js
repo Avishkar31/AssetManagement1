@@ -30,10 +30,12 @@ const assetSchema = new Schema({
     },
     assessories: {
         "CPU": {
-            type: Number
+            type: Number,
+            default: 0
         },
         "LCD Monitor": {
-            type: Number
+            type: Number,
+            default: 0
         },
         "Docking Station": {
             type: Number

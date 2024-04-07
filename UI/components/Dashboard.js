@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import classes from './Dashboard.module.css';
 import AssetForm from './AssetForm';
+import AssetDetails from './AssetDetails';
 
 const Dashboard = () => {
     const [assets, setAssests] = useState([]);
     const [isFromOpen, setIsFromOpen] = useState(false);
     const [searchText, setSearchText] = useState('');
     const [filteredAssets, setFilteredAssets] = useState([]);
+    const [showDetails, setShowDetails] = useState(null);
 
     const openForm = () => {
         setIsFromOpen(true);
     }
 
     const fetchAllAssets = async () => {
-        const res = await fetch('http://localhost:8080/asset/all-assets');
-        const data = await res.json();
-        setAssests(data.assets);
-        setFilteredAssets(data.assets);
+        try {
+            const res = await fetch('http://localhost:8080/asset/all-assets');
+            const data = await res.json();
+            setAssests(data.assets || []);
+            setFilteredAssets(data.assets || []);
+        } catch (err) {
+            console.log('error occured -> ', err);
+        }
     }
 
     const addAssetHandler = (newAsset) => {
@@ -39,9 +45,10 @@ const Dashboard = () => {
     return (
         <>
             {isFromOpen && <AssetForm addAssetToGrid={addAssetHandler} />}
+            {showDetails && <AssetDetails asset={showDetails} onClose={() => setShowDetails(null)} />}
             <section className={classes.container}>
                 <div className={classes.tagAssetBtn} onClick={openForm}>-Tag Assset-</div>
-                <input type="text" onChange={handleFilter}/>
+                <input type="text" onChange={handleFilter} />
                 <div className={classes.table}>
                     <div className={classes.header}>
                         <div className={classes.headerCell}>Issue To</div>
@@ -55,7 +62,8 @@ const Dashboard = () => {
                         <div className={classes.headerCell}>Assessories</div>
                         <div className={classes.headerCell}>Issueing Person</div>
                     </div>
-                    {filteredAssets.map(asset => <AssetData asset={asset} key={asset._id} />)}
+                    {filteredAssets.length ? filteredAssets.map(asset => <AssetData onClick={() => setShowDetails(asset)} asset={asset} key={asset._id} />)
+                        : <div className={classes.noData}>No Records to show</div>}
                 </div>
             </section>
         </>
@@ -64,9 +72,9 @@ const Dashboard = () => {
 
 export default Dashboard;
 
-const AssetData = ({ asset }) => {
+const AssetData = ({ asset, onClick }) => {
     return (
-        <div className={classes.data}>
+        <div className={classes.data} onClick={onClick}>
             <div className={classes.dataCell}>{asset.issuedTo || '-'}</div>
             <div className={classes.dataCell}>{asset.deskLocation || '-'}</div>
             <div className={classes.dataCell}>{asset.type || '-'}</div>

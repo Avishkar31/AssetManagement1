@@ -40,12 +40,19 @@ const AssetForm = ({ addAssetToGrid }) => {
             'assessories': {
                 'CPU': cpuRef.current.value,
                 'LCD Monitor': lcdMonitorRef.current.value,
-                'Docking Sattion': dockingStationRef.current.value,
+                'Docking Station': dockingStationRef.current.value,
                 'Keyboard': keyboardRef.current.value,
                 'Mouse': mouseRef.current.value,
                 'Power Adapter (Laptop)': powerAdaptorLaptopRef.current.value,
-                'Power Adaptor (Docking Station)': powerAdaptopDockingStationRef.current.value,
+                'Power Adaptor (Docking station)': powerAdaptopDockingStationRef.current.value,
                 'Laptop Bag': laptopBagRef.current.value,
+                'Modular Battery': modularBatteryRef.current.value,
+                'Laptop Lock': laptopLockRef.current.value,
+                'Internal HDD/ External HDD': hddRef.current.value,
+                'Headphone': headphoneRef.current.value,
+                'Cardreader': cardReaderRef.current.value,
+                'Printer': printerRef.current.value,
+                'Mobile': mobileRef.current.value
             }
         }
         await tagAsset(data);

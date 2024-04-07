@@ -61,6 +61,10 @@
     cursor: pointer;
 }
 
+.noData {
+    margin: 1rem;
+}
+
 .dataCell:first-child {
     border-left: 2px solid gray;
 }

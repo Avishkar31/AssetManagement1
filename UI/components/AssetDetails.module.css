@@ -1,0 +1,91 @@
+.assetDetailsPopup {
+  height: 100dvh;
+  width: 100dvw;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(128, 128, 128, 0.507);
+}
+
+.backdrop {
+  height: 100dvh;
+  position: absolute;
+  background-color: rgba(128, 128, 128, 0.507);
+}
+
+.assetDetails {
+  height: 90%;
+  width: 95%;
+  background-color: white;
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  overflow-y: scroll;
+}
+
+.closeBtn {
+  margin-left: auto;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.allocationDetails {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.table {
+  margin: auto;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.table .gridHeader {
+  display: flex;
+  background-color: rgb(158, 205, 78);
+  width: 100%;
+}
+
+.table .gridHeader .headerCell {
+  border-right: 2px solid gray;
+  border-top: 2px solid gray;
+  border-bottom: 2px solid gray;
+  padding: 0.5rem;
+  font-weight: 900;
+  flex-grow: 1;
+  width: 33%;
+}
+
+.table .gridHeader .headerCell:first-child {
+  border-left: 2px solid gray;
+}
+
+.table .data {
+  display: flex;
+  width: 100%;
+}
+
+.table .data .dataCell {
+  border-right: 2px solid gray;
+  border-bottom: 2px solid gray;
+  padding: 0.5rem;
+  flex-grow: 1;
+  width: 33%;
+  word-wrap: break-word;
+}
+
+.table .data .dataCell:first-child {
+  border-left: 2px solid gray;
+}
