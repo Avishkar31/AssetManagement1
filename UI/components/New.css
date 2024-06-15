@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
+  font-family: "Tilt Neon", sans-serif;
+  text-decoration: none;
+  /* background-color: black; */
+}
+
+:root {
+  --grid-width: 100vw;
+  --grid-columns-count: 36;
+}
+
+.header_top {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns-count), 1fr);
+  grid-auto-rows: 1fr;
+  width: 100%;
+  height: 60px;
+  z-index: 1002;
+  position: relative;
+  padding: 22px 0;
+  align-items: center;
+  background-color: #000028;
+}
+
+.main {
+  position: relative;
+}
+
+.logo_container {
+  grid-column: 2 / 7;
+}
+
+.logo img {
+  width: 100px;
+  height: 25px;
+}
+
+.right {
+  margin: 16px 74px 0px 0px;
+  display: flex;
+  justify-content: flex-end;
+  /* align-items: center; */
+}
+
+.fa-solid {
+  color: black;
+  font-size: 30px;
+  cursor: pointer;
+  margin: 15px;
+  padding: 10px;
+}
+
+.tag {
+  width: 100px;
+  height: 50px;
+  margin: 0px 34px 0px 35px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input {
+  width: 750px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+.heading {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.center {
+  margin: auto;
+  width: 760px;
+  padding: 26px;
+  margin-bottom: 52px;
+}
+.last button {
+  margin: 20px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 200px;
+  height: 50px;
+  background-color: #eeeeee;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.last button a {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Tilt Neon", sans-serif;
+  text-decoration: none;
+  color: #222831;
+}
+
+.last button:hover {
+  min-width: 205px;
+  height: 53px;
+  cursor: pointer;
+  background-color: #00ffb9;
+}

@@ -1,110 +1,176 @@
 .container {
-    width: 100dvw;
-    padding: 2rem;
-    box-sizing: border-box;
+  width: 100dvw;
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
 .table {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    /* overflow-x: scroll; */
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* overflow-x: scroll; */
 }
 
 .table .header {
-    display: flex;
-    background-color: rgb(158, 205, 78);
+  display: flex;
+  background-color: rgb(158, 205, 78);
 }
 
 .table .header .headerCell {
-    border-right: 2px solid gray;
-    border-top: 2px solid gray;
-    border-bottom: 2px solid gray; 
-    padding: .5rem;
-    /* text-wrap: nowrap; */
-    font-weight: 900;
-    /* width: 5rem; */
+  border-right: 2px solid gray;
+  border-top: 2px solid gray;
+  border-bottom: 2px solid gray;
+  padding: 0.5rem;
+  /* text-wrap: nowrap; */
+  font-weight: 900;
+  /* width: 5rem; */
 }
 
 .headerCell:first-child {
-    border-left: 2px solid gray;
+  border-left: 2px solid gray;
 }
 
 .table .data {
-    display: flex;
-    cursor: pointer;
+  display: flex !important;
+  cursor: pointer;
 }
 
 .table .data:hover {
-    background-color: rgba(182, 172, 172, 0.811);
+  background-color: rgba(182, 172, 172, 0.811);
 }
 
 .table .data .dataCell {
-    border-right: 2px solid gray;
-    border-bottom: 2px solid gray; 
-    padding: .5rem;
-    /* text-wrap: nowrap; */
-    word-wrap: break-word;
-    /* width: 5rem; */
+  border-right: 2px solid gray;
+  border-bottom: 2px solid gray;
+  padding: 0.5rem;
+  /* text-wrap: nowrap; */
+  word-wrap: break-word;
+  /* width: 5rem; */
 }
 
 .tagAssetBtn {
-    background-color: greenyellow;
-    width: fit-content;
-    margin-bottom: 1rem;
-    padding: .5rem;
-    border-radius: .5rem;
-    box-shadow: 3px 3px 2px rgb(120, 172, 89);
-    cursor: pointer;
+  background-color: greenyellow;
+  width: fit-content;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 3px 3px 2px rgb(120, 172, 89);
+  cursor: pointer;
 }
 
 .noData {
-    margin: 1rem;
+  margin: 1rem;
 }
 
 .dataCell:first-child {
-    border-left: 2px solid gray;
+  border-left: 2px solid gray;
 }
 
-.dataCell:nth-child(1), .headerCell:nth-child(1) {
-    min-width: 8rem;
+.dataCell:nth-child(1),
+.headerCell:nth-child(1) {
+  min-width: 8rem;
 }
 
-.dataCell:nth-child(2), .headerCell:nth-child(2) {
-    width: 5rem;
+.dataCell:nth-child(2),
+.headerCell:nth-child(2) {
+  width: 5rem;
 }
 
-.dataCell:nth-child(3), .headerCell:nth-child(3) {
-    width: 3rem;
+.dataCell:nth-child(3),
+.headerCell:nth-child(3) {
+  width: 3rem;
 }
 
-.dataCell:nth-child(4), .headerCell:nth-child(4) {
-    width: 8rem;
+.dataCell:nth-child(4),
+.headerCell:nth-child(4) {
+  width: 8rem;
 }
-.dataCell:nth-child(5), .headerCell:nth-child(5) {
-    width: 6rem;
+.dataCell:nth-child(5),
+.headerCell:nth-child(5) {
+  width: 6rem;
 }
-.dataCell:nth-child(6), .headerCell:nth-child(6) {
-    width: 5rem;
+.dataCell:nth-child(6),
+.headerCell:nth-child(6) {
+  width: 5rem;
 }
-.dataCell:nth-child(7), .headerCell:nth-child(7) {
-    width: 10rem;
+.dataCell:nth-child(7),
+.headerCell:nth-child(7) {
+  width: 10rem;
 }
-.dataCell:nth-child(8), .headerCell:nth-child(8) {
-    width: 3rem;
+.dataCell:nth-child(8),
+.headerCell:nth-child(8) {
+  width: 3rem;
 }
-.dataCell:nth-child(9), .headerCell:nth-child(9) {
-    width: 5rem;
+.dataCell:nth-child(9),
+.headerCell:nth-child(9) {
+  width: 5rem;
 }
-.dataCell:nth-child(10), .headerCell:nth-child(10) {
-    width: 5rem;
+.dataCell:nth-child(10),
+.headerCell:nth-child(10) {
+  width: 5rem;
 }
-.dataCell:nth-child(11), .headerCell:nth-child(11) {
-    width: 3rem;
+.dataCell:nth-child(11),
+.headerCell:nth-child(11) {
+  width: 3rem;
 }
-.dataCell:nth-child(12), .headerCell:nth-child(12) {
-    width: 3rem;
+.dataCell:nth-child(12),
+.headerCell:nth-child(12) {
+  width: 3rem;
+}
+
+/* Dashboard.module.css */
+.container {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tagAssetBtn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.searchInput {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.noData {
+  text-align: center;
+  padding: 20px;
+}
+
+.table th {
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+
+.table th span {
+  margin-left: 5px;
 }
