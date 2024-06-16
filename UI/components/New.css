@@ -1,110 +1,198 @@
-* {
+/* New.css */
+
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Noto Sans", sans-serif;
-  font-family: "Tilt Neon", sans-serif;
-  text-decoration: none;
-  /* background-color: black; */
-}
-
-:root {
-  --grid-width: 100vw;
-  --grid-columns-count: 36;
-}
-
-.header_top {
-  display: grid;
-  grid-template-columns: repeat(var(--grid-columns-count), 1fr);
-  grid-auto-rows: 1fr;
-  width: 100%;
-  height: 60px;
-  z-index: 1002;
-  position: relative;
-  padding: 22px 0;
-  align-items: center;
-  background-color: #000028;
 }
 
 .main {
-  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-.logo_container {
-  grid-column: 2 / 7;
+.header {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
 }
 
 .logo img {
-  width: 100px;
-  height: 25px;
-}
-
-.right {
-  margin: 16px 74px 0px 0px;
-  display: flex;
-  justify-content: flex-end;
-  /* align-items: center; */
-}
-
-.fa-solid {
-  color: black;
-  font-size: 30px;
-  cursor: pointer;
-  margin: 15px;
-  padding: 10px;
-}
-
-.tag {
-  width: 100px;
-  height: 50px;
-  margin: 0px 34px 0px 35px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.input {
-  width: 750px;
-  height: 50px;
-  padding: 10px;
-  border-radius: 5px;
-  outline: none;
-}
-.heading {
-  font-size: 30px;
-  font-weight: bold;
+  height: 30px; /* Adjust as needed */
 }
 
 .center {
-  margin: auto;
-  width: 760px;
-  padding: 26px;
-  margin-bottom: 52px;
-}
-.last button {
-  margin: 20px;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 200px;
-  height: 50px;
-  background-color: #eeeeee;
-  border: none;
-  outline: none;
-  border-radius: 2px;
-  z-index: 1;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.last button a {
-  font-size: 15px;
-  font-weight: bold;
-  font-family: "Tilt Neon", sans-serif;
-  text-decoration: none;
-  color: #222831;
+.right {
+  flex: 0 0 25%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close {
+  cursor: pointer;
+}
+
+.form {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.heading {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.data {
+  margin-bottom: 10px;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.options label {
+  width: 150px;
+  margin-right: 10px;
+}
+
+.options input,
+.options textarea,
+.options select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.options span {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.status,
+.location {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.status button,
+.location button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.optional {
+  margin-top: 20px;
+}
+
+.optional h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.dropdown-icon {
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.rotate-icon {
+  transform: rotate(180deg);
+}
+
+.dropdown-container {
+  padding-left: 20px;
+  border-left: 2px solid #ccc;
+  margin-bottom: 10px;
+  display: none;
+}
+
+.dropdown-container.open {
+  display: block;
+}
+
+.bottom {
+  margin-top: 20px;
+}
+
+.bottom button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.bottom button:hover {
+  background-color: #218838;
+}
+
+.last {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.last button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .last button:hover {
-  min-width: 205px;
-  height: 53px;
-  cursor: pointer;
-  background-color: #00ffb9;
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .center {
+    flex-direction: column;
+  }
+
+  .right {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .form {
+    padding-left: 0;
+  }
+
+  .optional .dropdown-container {
+    padding-left: 0;
+    border-left: none;
+  }
 }

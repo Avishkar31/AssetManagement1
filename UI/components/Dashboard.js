@@ -86,64 +86,120 @@ const Dashboard = () => {
         />
       )}
       <section className={classes.container}>
-        <div className={classes.header}>
-          <div className={classes.tagAssetBtn} onClick={openForm}>
-            -Tag Asset-
+        <div className={classes.main}>
+          <div className={classes.header_top}>
+            <div className={classes.logo_container}>
+              <div className={classes.logo}>
+                <img
+                  src="https://www.siemens.com/img/svg/logo-dark-3958fff2.svg"
+                  alt="Siemens"
+                />
+              </div>
+            </div>
+            <div className={classes.right}>
+              <i className="fa-solid fa-cubes"></i>
+            </div>
           </div>
-          <input
-            type="text"
-            placeholder="Search..."
-            value={searchText}
-            onChange={handleFilter}
-            className={classes.searchInput}
-          />
+          <div className={classes.header_2}>
+            <div className={classes.tagAssetBtn} onClick={openForm}>
+              -Tag Asset-
+            </div>
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchText}
+              onChange={handleFilter}
+              className={classes.searchInput}
+            />
+          </div>
         </div>
-        <div className={classes.table}>
-          <table {...getTableProps()}>
-            <thead>
-              {headerGroups.map((headerGroup) => (
-                <tr {...headerGroup.getHeaderGroupProps()}>
-                  {headerGroup.headers.map((column) => (
-                    <th
-                      {...column.getHeaderProps(column.getSortByToggleProps())}
-                    >
-                      {column.render("Header")}
-                      <span>
-                        {column.isSorted
-                          ? column.isSortedDesc
-                            ? " 🔽"
-                            : " 🔼"
-                          : ""}
-                      </span>
-                    </th>
-                  ))}
-                </tr>
-              ))}
-            </thead>
-            <tbody {...getTableBodyProps()}>
-              {rows.length ? (
-                rows.map((row) => {
-                  prepareRow(row);
-                  return (
-                    <tr
-                      {...row.getRowProps()}
-                      onClick={() => setShowDetails(row.original)}
-                    >
-                      {row.cells.map((cell) => (
-                        <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+        <div className={classes.secLan}>
+          <div className={classes.secondRow}>
+            <div className={classes.heading}>
+              <h4>Recently Updated</h4>
+            </div>
+            <div className={classes.table}>
+              <table {...getTableProps()}>
+                <thead>
+                  {headerGroups.map((headerGroup) => (
+                    <tr {...headerGroup.getHeaderGroupProps()}>
+                      {headerGroup.headers.map((column) => (
+                        <th
+                          {...column.getHeaderProps(
+                            column.getSortByToggleProps()
+                          )}
+                        >
+                          {column.render("Header")}
+                          <span>
+                            {column.isSorted
+                              ? column.isSortedDesc
+                                ? " 🔽"
+                                : " 🔼"
+                              : ""}
+                          </span>
+                        </th>
                       ))}
                     </tr>
-                  );
-                })
-              ) : (
-                <tr>
-                  <td colSpan={columns.length} className={classes.noData}>
-                    No Records to show
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+                  ))}
+                </thead>
+                <tbody {...getTableBodyProps()}>
+                  {rows.length ? (
+                    rows.map((row) => {
+                      prepareRow(row);
+                      return (
+                        <tr
+                          {...row.getRowProps()}
+                          className="data"
+                          onClick={() => setShowDetails(row.original)}
+                        >
+                          {row.cells.map((cell) => (
+                            <td {...cell.getCellProps()}>
+                              {cell.render("Cell")}
+                            </td>
+                          ))}
+                        </tr>
+                      );
+                    })
+                  ) : (
+                    <tr>
+                      <td colSpan={columns.length} className="noData">
+                        No data found
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div className={classes.thirdRow}>
+          <div className={classes.underThird}>
+            <div className={classes.heading}>
+              <h4>Recently Killdisk</h4>
+            </div>
+          </div>
+          <div className={classes.underThird}>
+            <div className={classes.heading}>
+              <h4>Today's Hardware Allocation</h4>
+            </div>
+          </div>
+        </div>
+        <div className={classes.fourthRow}>
+          <div className={classes.underfourth}>
+            <div className={classes.heading}>
+              <h4>India</h4>
+            </div>
+          </div>
+          <div className={classes.underfourth}>
+            <div className={classes.heading}>
+              <h4>Note:</h4>
+            </div>
+          </div>
+          <div className={classes.underfourth}>
+            <div className={classes.heading}>
+              <h4>Note:</h4>
+            </div>
+          </div>
         </div>
       </section>
     </>
