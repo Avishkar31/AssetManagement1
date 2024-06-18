@@ -6,7 +6,6 @@
 // import AssetDetails from "./Stock";
 // import { useNavigate } from "react-router-dom";
 
-
 // const addAssetHandler = (newAsset) => {
 //   setIsFromOpen(false);
 //   setAssests([...assets, newAsset]);
@@ -249,40 +248,45 @@ const Hardware = () => {
               <i title="Extract file" className="fa-solid fa-cubes"></i>
             </div>
           </div>
+        </header>
+        <div className={classes.sectionHeader}>
           <div className={classes.headerNav}>
-            <button className={classes.tag} onClick={handleTagAsset}>
+            <button className={classes.tagButton} onClick={handleTagAsset}>
               Tag Assets
             </button>
-            <nav className={classes.nav}>
-              <ul>
-                <li>
+            <nav className={classes.mainNav}>
+              <ul className={classes.navList}>
+                <li className={classes.navItem}>
                   Asset
-                  <ul className={classes.dropdown}>
-                    <li>All Asset</li>
-                    <li>MIS</li>
-                    <li>Buyback</li>
-                    <li>Disposed</li>
-                    <li>New Purchase/To be continued</li>
-                    <li>MIS Compactor</li>
-                    <li>Mezzanine</li>
+                  <ul className={classes.verticalDropdown}>
+                    <li className={classes.dropdownItem}>All Asset</li>
+                    <li className={classes.dropdownItem}>MIS</li>
+                    <li className={classes.dropdownItem}>Buyback</li>
+                    <li className={classes.dropdownItem}>Disposed</li>
+                    <li className={classes.dropdownItem}>
+                      New Purchase/To be continued
+                    </li>
+                    <li className={classes.dropdownItem}>MIS Compactor</li>
+                    <li className={classes.dropdownItem}>Mezzanine</li>
                   </ul>
                 </li>
-                <li>
+                <li className={classes.navItem}>
                   Accessories
-                  <ul className={classes.dropdown}>
-                    <li>Monitors</li>
-                    <li>Mouse</li>
-                    <li>Keyboard</li>
-                    <li>iPhone</li>
+                  <ul className={classes.verticalDropdown}>
+                    <li className={classes.dropdownItem}>Monitors</li>
+                    <li className={classes.dropdownItem}>Mouse</li>
+                    <li className={classes.dropdownItem}>Keyboard</li>
+                    <li className={classes.dropdownItem}>iPhone</li>
                   </ul>
                 </li>
-                <li>Peoples</li>
-                <li>Settings</li>
-                <li>Request</li>
+                <li className={classes.navItem}>Peoples</li>
+                <li className={classes.navItem}>Settings</li>
+                <li className={classes.navItem}>Request</li>
               </ul>
             </nav>
           </div>
-        </header>
+        </div>
+
         <div className={classes.center}>
           <div className={classes.secLan}>
             <div className={classes.secondRow}>

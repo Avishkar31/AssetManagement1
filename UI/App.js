@@ -27,6 +27,10 @@ export const router = createBrowserRouter([
     path: "/stock/new",
     element: <New />
   }
+  // {
+  //   path: "/stock/updating",
+  //   element: <Updating />
+  // }
 ]);
 
 export default App;

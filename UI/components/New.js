@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import "./New.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark, faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faXmark,
+  faCaretDown,
+  faPlus
+} from "@fortawesome/free-solid-svg-icons";
 
 const App = () => {
   const [isOpenAsset, setIsOpenAsset] = useState(false);
   const [isOpenKilldisk, setIsOpenKilldisk] = useState(false);
   const [isOpenDispose, setIsOpenDispose] = useState(false);
   const [isOpenOrderInfo, setIsOpenOrderInfo] = useState(false);
-
-  const openMailClient = () => {
-    // Handle opening mail client logic here
-  };
 
   const toggleDropdown = (dropdown) => {
     switch (dropdown) {
@@ -25,38 +25,36 @@ const App = () => {
         setIsOpenDispose(!isOpenDispose);
         break;
       case "OrderInfo":
-        setIsOpenOrderInfo(!isOpenOrderInfo);
+        setIsOpenOrderInfo((prev) => !prev);
         break;
-      default:
-        break;
+    }
+  };
+
+  const handleClose = () => {
+    if (window.confirm("You want to close this tab?")) {
+      window.location.href = "/stock"; // Redirect to the stock page
     }
   };
 
   return (
     <div className="main">
       <div className="header">
-        <div className="header_top">
-          <div className="logo_container">
-            <div className="logo">
-              <img
-                src="https://www.siemens.com/img/svg/logo-dark-3958fff2.svg"
-                alt="Siemens"
-              />
-            </div>
+        <div className="header-top">
+          <div className="logo-container">
+            <div className="heading">Adding New Asset</div>
           </div>
         </div>
       </div>
       <div className="center">
         <div className="right">
           <div className="top-btn">
-            <button className="tag">Save</button>
+            <button className="save-btn">Save</button>
           </div>
-          <div className="close">
-            <FontAwesomeIcon icon={faXmark} className="fa-2x" />
+          <div className="close" onClick={handleClose}>
+            <FontAwesomeIcon icon={faXmark} className="fa-2x close-icon" />
           </div>
         </div>
         <div className="form">
-          <div className="heading">Adding New Asset</div>
           <div className="data">
             <div className="options">
               <label htmlFor="">Issue to:</label>
@@ -68,7 +66,7 @@ const App = () => {
               <label htmlFor="">Serial Number</label>
               <input type="text" placeholder="Enter the model Number" />
               <span>
-                <FontAwesomeIcon icon={["fas", "plus"]} />
+                <FontAwesomeIcon icon={faPlus} />
               </span>
             </div>
           </div>
@@ -230,7 +228,7 @@ const App = () => {
                 }`}
               />
             </h3>
-            {isOpenOrderInfo && (
+            {true && (
               <div className="dropdown-container">
                 <div className="data">
                   <div className="options">
@@ -254,150 +252,12 @@ const App = () => {
             )}
           </div>
           <div className="bottom">
-            <button>Save</button>
+            <button className="save-btn">Save</button>
           </div>
         </div>
       </div>
-
-      <footer className="last">
-        <button type="button">
-          <a
-            href="http://"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={openMailClient}
-          >
-            Contact us
-          </a>
-        </button>
-      </footer>
     </div>
   );
 };
 
 export default App;
-
-{
-  /* // import React, { useState } from "react";
-// import "./New.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faTimes } from "@fortawesome/free-solid-svg-icons";
-
-// const App = () => { */
-}
-{
-  /* //   const [formData, setFormData] = useState({ */
-}
-{
-  /* //     issueTo: "",
-//     serialNumber: "",
-//     type: "",
-//     model: "",
-//     expires: "",
-//     nodeName: "",
-//     assetOwner: "",
-//     costCenter: "",
-//     receivedDate: "",
-//     condition: "",
-//     note: "",
-//     misStoreLocation: "",
-//     killdiskDate: "",
-//     disposeDate: "",
-//     poNumber: "",
-//     order: "",
-//     purchaseNo: ""
-//   });
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target; */
-}
-{
-  /* //     setFormData((prevData) => ({ */
-}
-//       ...prevData,
-//       [name]: value
-//     }));
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     // Handle form submission logic here, e.g., send data to backend
-//     console.log("Form submitted with data:", formData);
-//     // Reset form fields if needed
-//     setFormData({
-//       issueTo: "",
-//       serialNumber: "",
-//       type: "",
-//       model: "",
-//       expires: "",
-//       nodeName: "",
-//       assetOwner: "",
-//       costCenter: "",
-//       receivedDate: "",
-//       condition: "",
-//       note: "",
-//       misStoreLocation: "",
-//       killdiskDate: "",
-//       disposeDate: "",
-//       poNumber: "",
-//       order: "",
-//       purchaseNo: ""
-//     });
-//   };
-
-//   const openMailClient = () => {
-//     // Handle opening mail client logic here
-//   };
-
-//   return (
-//     <div className="main">
-//       <div className="header">
-//         <div className="header_top">
-//           <div className="logo_container">
-//             <div className="logo">
-//               <img
-//                 src="https://www.siemens.com/img/svg/logo-dark-3958fff2.svg"
-//                 alt="Siemens"
-//               />
-//             </div>
-//           </div>
-//           <div className="right">
-//             <button className="tag">Save</button>
-//             <FontAwesomeIcon icon={faTimes} className="fa-solid" />
-//           </div>
-//         </div>
-//       </div>
-//       <div className="center">
-//         <form className="form" onSubmit={handleSubmit}>
-//           <div className="heading">Adding New Asset</div>
-//           <div className="data">
-//             <div className="options">
-//               <label htmlFor="issueTo">Issue to:</label>
-//               <input
-//                 type="text"
-//                 id="issueTo"
-//                 name="issueTo"
-//                 value={formData.issueTo}
-//                 onChange={handleChange}
-//                 placeholder="Enter unique number"
-//               />
-//             </div>
-//           </div>
-//           {/* Additional form fields omitted for brevity */}
-//           <div className="bottom">
-//             <button type="submit" className="save-button">
-//               Save
-//             </button>
-//           </div>
-//         </form>
-//       </div>
-//       <footer className="footer">
-//         <button type="button" onClick={openMailClient}>
-//           Contact us
-//         </button>
-//       </footer>
-//     </div>
-//   );
-// };
-
-// export default App;

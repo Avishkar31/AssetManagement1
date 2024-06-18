@@ -16,7 +16,7 @@
 /* Main container */
 .main {
   position: relative;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 /* Header styles */
@@ -41,6 +41,9 @@
   font-size: 22px;
   cursor: pointer;
 }
+.sectionHeader {
+  margin: 20px;
+}
 
 .headerNav {
   display: flex;
@@ -48,54 +51,59 @@
   align-items: center;
 }
 
-.nav ul {
-  display: flex;
-  list-style: none;
-}
-
-.nav li {
-  position: relative;
-  margin-right: 20px;
-}
-
-.nav li:hover .dropdown {
-  opacity: 1;
-  top: 25px;
-  visibility: visible;
-}
-
-.dropdown {
-  position: absolute;
-  background-color: #000028;
-  left: 0;
-  top: 100%;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 1;
-}
-
-.dropdown li {
-  padding: 5px 10px;
-  color: white;
-  width: 150px;
-}
-
-.dropdown li:hover {
-  background-color: #00ffb9;
-}
-
-/* Tag button */
-.tag {
+.tagButton {
   background-color: #00ffb9;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
+}
+
+.mainNav .navList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mainNav .navItem {
+  position: relative;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.mainNav .navItem:hover .verticalDropdown {
+  display: block;
+}
+
+.verticalDropdown {
+  display: none;
+  position: absolute;
+  background-color: #000028;
+  left: 0;
+  top: 100%;
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 150px;
+}
+
+.dropdownItem {
+  padding: 10px 15px;
+  color: white;
+}
+
+.dropdownItem:hover {
+  background-color: #00ffb9;
 }
 
 /* Center content */
 .center {
+  /* margin-top: 20px; */
   margin-top: 20px;
+  padding: 20px;
 }
 
 /* Sections within center */
@@ -106,18 +114,27 @@
 }
 
 .secondRow,
-.pai1,
-.underThird,
-.fourthRow,
-.last2 {
+.pai1 {
+  margin: 5px;
+  height: 350px;
   border: 2px solid gray;
   border-radius: 10px;
-  padding: 20px;
 }
 
-.secondRow,
+.fourthRow,
+.last2 {
+  margin: 5px;
+  height: 350px;
+  border: 2px solid gray;
+  border-radius: 10px;
+}
+
+.secondRow {
+  width: 68%;
+}
+
 .pai1 {
-  width: 48%;
+  width: 32%;
 }
 
 /* Third row */
@@ -130,6 +147,10 @@
 .underThird {
   width: 48%;
   margin-bottom: 20px;
+  margin: 5px;
+  height: 150px;
+  border: 2px solid gray;
+  border-radius: 10px;
 }
 
 /* Last section */
@@ -243,5 +264,24 @@
   .tag {
     width: 100%;
     margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainNav .navList {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mainNav .navItem {
+    margin-bottom: 10px;
+  }
+
+  .verticalDropdown {
+    width: 100%;
+  }
+
+  .dropdownItem {
+    width: 100%;
   }
 }

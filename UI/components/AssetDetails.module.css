@@ -1,6 +1,6 @@
 .assetDetailsPopup {
-  height: 100dvh;
-  width: 100dvw;
+  height: 100vh;
+  width: 100vw;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -9,7 +9,7 @@
 }
 
 .backdrop {
-  height: 100dvh;
+  height: 100vh;
   position: absolute;
   background-color: rgba(128, 128, 128, 0.507);
 }
@@ -21,19 +21,42 @@
   padding: 1rem;
   box-sizing: border-box;
   border-radius: 1rem;
-  overflow-y: scroll;
+  overflow-y: auto;
+}
+
+.headerActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .closeBtn {
-  margin-left: auto;
-  width: fit-content;
   cursor: pointer;
+}
+
+.printBtn {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 .header {
   display: flex;
   justify-content: center;
   gap: 4rem;
+}
+
+.heading {
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .allocationDetails {
@@ -50,6 +73,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .table .gridHeader {
@@ -88,4 +112,95 @@
 
 .table .data .dataCell:first-child {
   border-left: 2px solid gray;
+}
+
+.hidden {
+  margin-top: 50px;
+}
+
+.sign {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+.instruc {
+  margin: 20px;
+}
+
+.instruc p {
+  padding: 10px;
+}
+
+.user {
+  margin: 30px;
+}
+
+@media print {
+  /* .assetDetailsPopup, */
+  .backdrop,
+  .printBtn,
+  .closeBtn {
+    display: none;
+  }
+
+  .assetDetails {
+    height: auto;
+    width: 100%;
+    padding: 0;
+    border: none;
+    overflow: visible;
+  }
+
+  .header {
+    display: block;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .table {
+    margin: auto;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .gridHeader {
+    background-color: rgb(158, 205, 78);
+  }
+
+  .headerCell,
+  .dataCell {
+    border: 2px solid gray;
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  .headerCell {
+    font-weight: bold;
+  }
+
+  .data {
+    display: table-row;
+  }
+
+  .data .dataCell {
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .hidden {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .sign,
+  .instruc,
+  .user {
+    text-align: center;
+    margin: 20px;
+  }
+
+  .instruc p {
+    padding: 10px;
+  }
 }

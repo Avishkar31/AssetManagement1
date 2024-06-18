@@ -47,8 +47,8 @@ const AssetForm = ({ addAssetToGrid }) => {
         "Power Adaptor (Docking station)":
           powerAdaptopDockingStationRef.current.value,
         "Laptop Bag": laptopBagRef.current.value,
-        "Modular Battery": modularBatteryRef.current.value,
-        "Laptop Lock": laptopLockRef.current.value,
+        // "Modular Battery": modularBatteryRef.current.value,
+        // "Laptop Lock": laptopLockRef.current.value,
         "Internal HDD/ External HDD": hddRef.current.value,
         Headphone: headphoneRef.current.value,
         Cardreader: cardReaderRef.current.value,
@@ -56,8 +56,14 @@ const AssetForm = ({ addAssetToGrid }) => {
         Mobile: mobileRef.current.value
       }
     };
-    await tagAsset(data);
-    addAssetToGrid(data);
+
+    const confirmed = window.confirm("Do you want to save the data?");
+    if (confirmed) {
+      await tagAsset(data);
+      addAssetToGrid(data);
+    } else {
+      // No action needed, the form will remain as it is
+    }
   };
 
   const tagAsset = async (data) => {
@@ -70,11 +76,12 @@ const AssetForm = ({ addAssetToGrid }) => {
     });
     const response = await res.json();
   };
+
   return (
     <section className={classes.assetFormPopup}>
       <div className={classes.backdrop}></div>
       <form onSubmit={submitHandler} className={classes.assetForm}>
-        <div className={classes.header}>Hardware Allocation & Receipt From</div>
+        <div className={classes.header}>Hardware Allocation & Receipt Form</div>
         <div className={classes.details}>
           <div className={classes.control}>
             <label htmlFor="issueTo">Issue To</label>
@@ -149,7 +156,7 @@ const AssetForm = ({ addAssetToGrid }) => {
             />
           </div>
         </div>
-        <div className={classes.assessoriesLabel}>Assessories: </div>
+        <div className={classes.assessoriesLabel}>Accessories: </div>
         <div className={classes.assessories}>
           <div className={classes.assessoriesControl}>
             <label htmlFor="cpu">CPU</label>
@@ -187,7 +194,7 @@ const AssetForm = ({ addAssetToGrid }) => {
             <input id="mouse" ref={mouseRef} type="number" placeholder="0" />
           </div>
           <div className={classes.assessoriesControl}>
-            <label htmlFor="powerAdaptorLaptop">Power Adaptor (Laptop)</label>
+            <label htmlFor="powerAdaptorLaptop">Power Adapter (Laptop)</label>
             <input
               id="powerAdaptorLaptop"
               ref={powerAdaptorLaptopRef}
@@ -197,7 +204,7 @@ const AssetForm = ({ addAssetToGrid }) => {
           </div>
           <div className={classes.assessoriesControl}>
             <label htmlFor="powerAdaptopDockingStation">
-              Power Adaptop (Docking Station)
+              Power Adapter (Docking Station)
             </label>
             <input
               id="powerAdaptopDockingStation"
@@ -215,7 +222,7 @@ const AssetForm = ({ addAssetToGrid }) => {
               placeholder="0"
             />
           </div>
-          <div className={classes.assessoriesControl}>
+          {/* <div className={classes.assessoriesControl}>
             <label htmlFor="modularBattery">Modular Battery</label>
             <input
               id="modularBattery"
@@ -232,7 +239,7 @@ const AssetForm = ({ addAssetToGrid }) => {
               type="number"
               placeholder="0"
             />
-          </div>
+          </div> */}
           <div className={classes.assessoriesControl}>
             <label htmlFor="hdd">Internal HDD/ External HDD</label>
             <input id="hdd" ref={hddRef} type="number" placeholder="0" />
